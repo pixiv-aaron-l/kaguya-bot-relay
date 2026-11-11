@@ -1,15 +1,26 @@
-# Kaguya Relay
+# Kaguya Bot Relay
 
-A small Devvit app for moderators. When a new post is created in a subreddit where the app is installed, it sends a formatted message (an embed) to a Discord channel through a webhook that the moderator configures.
+Kaguya Bot Relay is a tool for subreddit moderators. It sends every new post of your subreddit to a Discord channel of your choice, as one tidy message.
 
-Each message contains the post title (linked to the post), the first image when the post has one, a short text preview for text posts, and the footer "by u/author on r/subreddit".
+## What the Discord message looks like
+
+- The post title on top, as a link to the post.
+- The post's first picture in the middle, when it has one. Text posts show a short preview instead.
+- A line at the bottom: "by u/author on r/subreddit".
+- A color of your choice, so each subreddit can have its own.
+- Posts marked NSFW are sent with an [NSFW] tag and without a picture.
+
+## How to use it
+
+1. In Discord, open the channel that should receive the posts, then go to Settings, Integrations, Webhooks, New Webhook, and copy the webhook URL.
+2. Install the app on your subreddit.
+3. Open the app's settings for your subreddit and paste the webhook URL. Optionally enter a color as six hex digits, for example 7E57C2.
+4. Create a post. It should appear in your Discord channel within seconds.
 
 ## Settings
 
-Set per subreddit on the app's install settings page:
-
-- Discord webhook URL: the webhook of the channel that should receive new posts.
-- Embed color: six hex digits, so each subreddit can have its own color.
+- Discord webhook URL: the webhook of the channel that receives new posts. It must start with https://discord.com/api/webhooks/
+- Embed color: six hex digits without the #.
 
 ## Fetch Domains
 
@@ -17,7 +28,7 @@ Set per subreddit on the app's install settings page:
 
 ## Data stored
 
-The app stores, in Devvit Redis, the IDs of recently relayed posts for seven days, only to avoid sending the same post twice.
+The app stores, in Devvit Redis, the IDs of recently relayed posts for seven days, only to avoid sending the same post twice. It does not use the Reddit API and does not post, comment, vote or moderate anything.
 
 - [Terms and Conditions](TERMS.md)
 - [Privacy Policy](PRIVACY.md)
