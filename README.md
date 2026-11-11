@@ -15,12 +15,17 @@ Kaguya Bot Relay is a tool for subreddit moderators. It sends every new post of 
 1. In Discord, open the channel that should receive the posts, then go to Settings, Integrations, Webhooks, New Webhook, and copy the webhook URL.
 2. Install the app on your subreddit.
 3. Open the app's settings for your subreddit and paste the webhook URL. Optionally enter a color as six hex digits, for example 7E57C2.
-4. Create a post. It should appear in your Discord channel within seconds.
+4. Create a post. About one minute later, it appears in your Discord channel.
+
+## Timing and routing
+
+The message is sent one minute after the post is created. Right after it, the app can send a short second message (the routing tag, for example #kaguya-love) so a Discord bot can tell which channel the post belongs to.
 
 ## Settings
 
 - Discord webhook URL: the webhook of the channel that receives new posts. It must start with https://discord.com/api/webhooks/
 - Embed color: six hex digits without the #.
+- Routing tag: optional text sent as a second message right after the embed.
 
 ## Fetch Domains
 
